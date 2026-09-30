@@ -1,0 +1,13 @@
+Clasifica la relacion entre estas dos afirmaciones de articulos cientificos basandote en el contexto de cita proporcionado.
+
+Contexto de cita:
+{context}
+
+Afirmacion Articulo A:
+{paper_a_claim}
+
+Afirmacion Articulo B:
+{paper_b_claim}
+
+Responde en formato JSON con los campos: relation, confidence, reason.
+Las opciones de relation son: agree, disagree, neutral.

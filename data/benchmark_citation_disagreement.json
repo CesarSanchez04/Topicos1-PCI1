@@ -1,0 +1,82 @@
+[
+  {
+    "id": "case_01",
+    "topic": "Scaling Laws in LLMs",
+    "paper_a_claim": "Increasing model parameters and dataset size consistently decreases cross-entropy loss following a smooth power law across several orders of magnitude.",
+    "paper_b_claim": "Beyond 100 billion parameters, dense LLMs exhibit severe diminishing returns where performance gains on reasoning benchmarks stall despite massive parameter scaling.",
+    "context_base": "Kaplan et al. (2020) demonstrated empirical scaling laws for language model performance. However, recent benchmarks by Smith et al. (2023) show saturation on complex multi-step reasoning tasks beyond 100B parameters.",
+    "context_modified": "Scaling laws are widely accepted in deep learning. Many researchers argue that scaling parameters is all you need for AGI, while others focus on synthetic data quality regardless of model size.",
+    "gold_label": "disagree",
+    "explanation": "Paper A claims continuous power-law improvement with parameter scaling, whereas Paper B claims diminishing returns and performance saturation beyond 100B parameters."
+  },
+  {
+    "id": "case_02",
+    "topic": "Retrieval-Augmented Generation vs Fine-Tuning",
+    "paper_a_claim": "Retrieval-Augmented Generation (RAG) outperforms supervised fine-tuning when updating factual domain knowledge and mitigating hallucination in dynamic environments.",
+    "paper_b_claim": "Fine-tuning models on domain-specific datasets yields lower hallucination rates and better task adherence than RAG systems relying on dense vector retrieval.",
+    "context_base": "Lewis et al. (2020) proposed RAG for knowledge-intensive tasks. Subsequent comparative studies evaluate whether internal parametric memory via fine-tuning or external non-parametric memory via RAG is more reliable for factual precision.",
+    "context_modified": "RAG architecture combines a retriever with a sequence-to-sequence generator. Supervised fine-tuning adjusts all weights of the network on domain text.",
+    "gold_label": "disagree",
+    "explanation": "Paper A asserts RAG superior for updating knowledge and reducing hallucinations, while Paper B asserts fine-tuning is superior for reducing hallucinations."
+  },
+  {
+    "id": "case_03",
+    "topic": "KV Cache Compression in Attention",
+    "paper_a_claim": "Grouped-Query Attention (GQA) achieves inference speeds close to Multi-Query Attention while maintaining response quality comparable to Multi-Head Attention.",
+    "paper_b_claim": "Grouping key-value heads in GQA significantly reduces memory bandwidth requirements during autoregressive decoding while preserving full MHA accuracy across standard benchmarks.",
+    "context_base": "Ainslie et al. (2023) introduced GQA as an intermediate architecture between MHA and MQA. Empirical evaluations on LLaMA-2 models confirmed memory efficiency without performance drop.",
+    "context_modified": "Multi-Head Attention stores key-value pairs for all heads. Attention mechanisms are fundamental components of transformer architectures introduced in Vaswani et al. (2017).",
+    "gold_label": "agree",
+    "explanation": "Both Paper A and Paper B agree that GQA reduces memory/bandwidth requirements and achieves high inference speed while retaining accuracy comparable to MHA."
+  },
+  {
+    "id": "case_04",
+    "topic": "Chain-of-Thought Prompting Emergence",
+    "paper_a_claim": "Chain-of-thought (CoT) prompting capability emerges naturally in language models only when model scale exceeds roughly 100 billion parameters.",
+    "paper_b_claim": "Eliciting step-by-step reasoning via CoT prompts produces substantial accuracy improvements exclusively in large-scale language models, showing negligible effect in sub-10B models.",
+    "context_base": "Wei et al. (2022) studied emergent abilities in LLMs. They observed that rationale generation significantly improves arithmetic and symbolic reasoning tasks primarily in models with >100B parameters.",
+    "context_modified": "Prompting techniques vary from zero-shot to few-shot. Reasoning tasks include GSM8K and SVAMP benchmarks.",
+    "gold_label": "agree",
+    "explanation": "Both Paper A and Paper B agree that Chain-of-Thought prompting is an emergent capability effective primarily in very large scale language models (>100B parameters)."
+  },
+  {
+    "id": "case_05",
+    "topic": "RoPE Position Embeddings Extrapolation",
+    "paper_a_claim": "Rotary Position Embedding (RoPE) allows transformer models to generalize context lengths up to 32k tokens via linear position interpolation during inference.",
+    "paper_b_claim": "Position Interpolation modifies RoPE frequencies by scaling down context position indices, enabling context window expansion without retraining from scratch.",
+    "context_base": "Su et al. (2024) designed RoPE for relative positional encoding. Chen et al. (2023) introduced Linear Position Interpolation to extend context length up to 32k tokens efficiently.",
+    "context_modified": "Transformer models traditionally use absolute positional embeddings or learned position codes. Context length limitation has been a key bottleneck in long document processing.",
+    "gold_label": "neutral",
+    "explanation": "Paper A makes a general performance claim about RoPE scaling context window to 32k tokens, while Paper B describes the technical mechanism of frequency scaling in position interpolation without directly agreeing or disagreeing with Paper A's exact benchmark outcome."
+  },
+  {
+    "id": "case_06",
+    "topic": "Direct Preference Optimization vs PPO",
+    "paper_a_claim": "Direct Preference Optimization (DPO) optimizes language models to align with human preferences without training an explicit reward model or sampling from the policy during training, outperforming PPO.",
+    "paper_b_claim": "Reinforcement Learning from Human Feedback (RLHF) using PPO achieves higher policy stability and lower mode collapse than implicit preference methods like DPO on multi-turn dialogue benchmarks.",
+    "context_base": "Rafailov et al. (2023) introduced DPO as a closed-form alternative to PPO. Subsequent comparative analyses evaluate alignment stability and win-rates against human annotators.",
+    "context_modified": "Human feedback alignment is essential for modern LLM deployment. Models are evaluated using AlpacaEval and MT-Bench.",
+    "gold_label": "disagree",
+    "explanation": "Paper A claims DPO outperforms PPO by eliminating explicit reward models, whereas Paper B claims PPO achieves higher stability and lower mode collapse than DPO."
+  },
+  {
+    "id": "case_07",
+    "topic": "Quantization Impact on LLM Reasoning",
+    "paper_a_claim": "4-bit NormalFloat (NF4) quantization with QLoRA preserves full precision perplexity and benchmark accuracy compared to 16-bit unquantized baseline models.",
+    "paper_b_claim": "Quantizing LLM weights to 4-bit precision causes measurable degradation in complex mathematical reasoning tasks, despite showing negligible loss on simple multiple-choice tasks.",
+    "context_base": "Dettmers et al. (2023) presented QLoRA and NF4 data type. Further evaluations by Harvard NLP group assessed reasoning degradation under low-bit precision.",
+    "context_modified": "Quantization techniques reduce GPU VRAM requirements. Integer quantization FP8 and INT4 are supported in modern inference frameworks like vLLM.",
+    "gold_label": "disagree",
+    "explanation": "Paper A claims 4-bit NF4 quantization preserves full precision accuracy across benchmarks, whereas Paper B claims 4-bit quantization causes measurable degradation on complex mathematical reasoning."
+  },
+  {
+    "id": "case_08",
+    "topic": "Transformer Attention Complexity",
+    "paper_a_claim": "Standard self-attention computes pairwise dot products between all sequence tokens, incurring quadratic $O(N^2)$ time and memory complexity with sequence length $N$.",
+    "paper_b_claim": "The exact computation of scaled dot-product attention requires $O(N^2)$ operational complexity due to the full matrix multiplication between Query ($Q$) and Key ($K^T$) matrices.",
+    "context_base": "Vaswani et al. (2017) formulated multi-head attention. Efficient transformer literature focuses on breaking the $O(N^2)$ bottleneck using linear or kernelized attention approximations.",
+    "context_modified": "Linear attention mechanisms attempt to reduce computational cost. FlashAttention optimizes GPU memory access patterns without changing exact output values.",
+    "gold_label": "agree",
+    "explanation": "Both Paper A and Paper B agree that standard self-attention exhibits quadratic computational and memory complexity $O(N^2)$ with respect to sequence length $N$."
+  }
+]

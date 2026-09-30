@@ -1,0 +1,62 @@
+{
+  "exp1_prompt": {
+    "P0_baseline": {
+      "n_samples": 8,
+      "raw_json_parse_rate": 1.0,
+      "recovered_json_parse_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "accuracy": 0.5,
+      "macro_f1": 0.2222222222222222,
+      "avg_latency_ms": 15.00011920928955
+    },
+    "P1_improved": {
+      "n_samples": 8,
+      "raw_json_parse_rate": 1.0,
+      "recovered_json_parse_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "accuracy": 0.5,
+      "macro_f1": 0.2222222222222222,
+      "avg_latency_ms": 15.00011920928955
+    }
+  },
+  "exp2_context": {
+    "C0_base": {
+      "n_samples": 8,
+      "raw_json_parse_rate": 1.0,
+      "recovered_json_parse_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "accuracy": 0.5,
+      "macro_f1": 0.2222222222222222,
+      "avg_latency_ms": 15.00011920928955
+    },
+    "C1_modified": {
+      "n_samples": 8,
+      "raw_json_parse_rate": 1.0,
+      "recovered_json_parse_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "accuracy": 0.5,
+      "macro_f1": 0.2222222222222222,
+      "avg_latency_ms": 15.0
+    }
+  },
+  "exp3_decoding": {
+    "D0_greedy": {
+      "n_samples": 8,
+      "raw_json_parse_rate": 1.0,
+      "recovered_json_parse_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "accuracy": 0.5,
+      "macro_f1": 0.2222222222222222,
+      "avg_latency_ms": 15.00011920928955
+    },
+    "D1_sampling": {
+      "n_samples": 8,
+      "raw_json_parse_rate": 1.0,
+      "recovered_json_parse_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "accuracy": 0.5,
+      "macro_f1": 0.2222222222222222,
+      "avg_latency_ms": 15.0
+    }
+  }
+}

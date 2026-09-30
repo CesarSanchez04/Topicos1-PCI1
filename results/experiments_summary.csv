@@ -1,0 +1,7 @@
+Experimento,Condición,Schema Valid Rate,Accuracy,Macro-F1
+Exp 1 - Prompt,P0 (Baseline),100.00%,50.00%,0.2222
+Exp 1 - Prompt,P1 (Mejorado),100.00%,50.00%,0.2222
+Exp 2 - Contexto,C0 (Base),100.00%,50.00%,0.2222
+Exp 2 - Contexto,C1 (Modificado),100.00%,50.00%,0.2222
+Exp 3 - Decoding,D0 (Greedy),100.00%,50.00%,0.2222
+Exp 3 - Decoding,D1 (Sampling t=0.8),100.00%,50.00%,0.2222
